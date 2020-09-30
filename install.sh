@@ -2,55 +2,52 @@
 
 # Shell script to setup dotfiles and everything else required
 
-# git configuration
-git_email="venuvardhanreddytekula8@gmal.com"
-git_name="Venu Vardhan Reddy Tekula"
-
-# Directory and repo for oh-my-zsh
-oh_my_zsh_dir=$HOME/.oh-my-zsh
-oh_my_zsh_repo=https://github.com/robbyrussell/oh-my-zsh.git
-oh_my_zsh_theme="bureau"
-
-# Packages to install
-packages="wget build-essential curl python-dev python-pip python3-pip git xclip zsh"
-
-# Pip packages to install
-pip2_packages="ipython pip virtualenvwrapper"
-pip3_packages="ipython pip"
-
-if [ -z $git_name ] || [ -z $git_email ]
-then
-    echo "Please set both git_name and git_email variables in install script and re-run it"
-    exit
-fi
-
-echo "Updating package lists"
+# initial setup
 sudo apt-get update
-if [ $? -ne 0 ]; then
-    echo "Package lists update failed. Aborting."
-    exit 1
-fi
+sudo apt-get upgrade
 
-echo "Installing packages $packages. Won't work on systems without apt-get."
-sudo apt-get install --yes $packages
+# logging setup
+sudo apt-get install fortune cowsay
+git clone http://github.com/possatti/pokemonsay
+cd pokemonsay && ./install.sh
+rm -rf pokemonsay
 
-echo "Installing pip packages. Might fail on non-Ubuntu machines."
-sudo pip2 install --upgrade $pip2_packages
-sudo pip3 install --upgrade $pip3_packages
+# git installation and configurations
+echo "INSTALLING GIT" | ~/bin/pokemonsay
+sudo apt install git-all
+git config --global user.name "Venu Vardhan Reddy Tekula"
+git config --global user.email "venuvardhanreddytekula8@gmail.com"
+echo "GIT IS CONFIGURED" | ~/bin/pokemonthink
+git --version
+git config user.name
+git config user.email
+echo "ADDING GIT ALIASES" | ~/bin/pokemonsay
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 
-# Git configuration setup
-echo "Setting up git configuration"
-git config --global user.name $git_name
-git config --glob
+# zsh installation and configurations
+echo "INSTALLING ZSH" | ~/bin/pokemonsay
+sudo apt install zsh
+zsh --version
+chsh -s $(which zsh)
+echo "ZSH IS CONFIGURED, LOGOUT ONCE TO SEE THE CHANGES" | ~/bin/pokemonthink
+echo $SHELL # need to logout, then you can see `/bin/zsh` as output
+echo "SETTING UP OHMYZSH" | ~/bin/pokemonsay
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+wget https://raw.githubusercontent.com/vchrombie/dotfiles/master/vchrombie-bureau.zsh-theme -O ~/.oh-my-zsh/themes/vchrombie-bureau.zsh-theme
+wget https://raw.githubusercontent.com/vchrombie/dotfiles/master/zshrc -O ~/.zshrc
+echo "RELAUNCH TERMINAL TO SEE THE CHANGES" | ~/bin/pokemonsay
 
-echo "Cloning oh-my-zsh to $oh_my_zsh_dir"
-git clone $oh_my_zsh_repo $oh_my_zsh_dir
 
-cp bashrc ~/.bashrc 
-cp zshrc ~/.zshrc 
-source ~/.zshrc
 
-echo "Changing login shell to zsh"
-chsh -s /bin/zsh
+# other required apps setup
+echo "INSTALLING APPS" | ~/bin/pokemonsay
+echo "TELEGRAM" | ~/bin/pokemonsay
+sudo apt install telegram-desktop
+echo "PYCHARM COMMUNITY" | ~/bin/pokemonsay
+sudo snap install pycharm-community --classic
 
-echo "Install complete. You might want to tweak the profile used by your terminal emulator"
+echo "SYSTEM SETUP IS DONE" | ~/bin/pokemonsay
