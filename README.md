@@ -11,12 +11,14 @@ Read more about it here, https://www.thegeekyway.com/what-are-dotfiles/.
 
 Run this script on a fresh installation of the system.
 ```
-p0tt3r@wand ~ >🔮$ sh -c "$(wget -O- https://raw.githubusercontent.com/vchrombie/dotfiles/master/install.sh)"
+p0tt3r@wand ~
+>🔮$ sudo su
+
+p0tt3r@wand ~ 
+>🔮$ sh -c "$(wget -O- https://raw.githubusercontent.com/vchrombie/dotfiles/master/install.sh)"
 ```
 
 You can fork this repo and create your own version.
-
-
 
 ## Thanks
 
