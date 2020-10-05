@@ -50,7 +50,7 @@ wget https://raw.githubusercontent.com/vchrombie/dotfiles/master/zshrc -O ~/.zsh
 echo "RELAUNCH TERMINAL TO SEE THE CHANGES" | pokemonsay
 
 echo "INSTALLING NECCESSARY PACKAGES" | pokemonsay
-apt-get install python3-dev python3-tk libffi-dev libssl-dev
+apt-get install python3-dev python3-tk libffi-dev libssl-dev curl
 apt-get remove python3-pip; apt-get install python3-pip
 
 echo "INSTALLING APPS" | pokemonsay

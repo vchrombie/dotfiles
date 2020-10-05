@@ -98,5 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias got='git '
 alias gut='git '
+
+alias python=python3
+alias pip=pip3
