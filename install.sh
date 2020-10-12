@@ -29,6 +29,8 @@ echo "ADDING GIT ALIASES" | pokemonsay
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
+git config --global alias.ft fetch
+git config --global alias.rb rebase
 git config --global alias.st status
 git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 
@@ -50,8 +52,10 @@ wget https://raw.githubusercontent.com/vchrombie/dotfiles/master/zshrc -O ~/.zsh
 echo "RELAUNCH TERMINAL TO SEE THE CHANGES" | pokemonsay
 
 echo "INSTALLING NECCESSARY PACKAGES" | pokemonsay
-apt-get install python3-dev python3-tk libffi-dev libssl-dev curl
+apt-get install python3-dev python3-venv python3-tk libffi-dev libssl-dev curl
 apt-get remove python3-pip; apt-get install python3-pip
+
+apt update
 
 echo "INSTALLING APPS" | pokemonsay
 # other required apps setup
@@ -65,6 +69,15 @@ snap install slack --classic
 
 echo "PYCHARM COMMUNITY" | pokemonsay
 snap install pycharm-community --classic
+
+echo "VSCODE" | pokemonsay
+snap install code --classic
+
+echo "SUBLIME TEXT" | pokemonsay
+apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
+apt install sublime-text
 
 echo "FINAL CHECK FOR UPDATES AND MISSING PACKAGES"
 apt-get update && apt-get update --fix-missing
