@@ -1,10 +1,5 @@
 # oh-my-zsh Bureau Theme
 
-### NVM
-
-ZSH_THEME_NVM_PROMPT_PREFIX="%B⬡%b "
-ZSH_THEME_NVM_PROMPT_SUFFIX=""
-
 ### Git [±master ▾●]
 
 ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg_bold[green]%}±%{$reset_color%}%{$fg_bold[white]%}"
@@ -117,7 +112,7 @@ bureau_precmd () {
 
 setopt prompt_subst
 PROMPT='>🔮$_LIBERTY '
-RPROMPT='$(nvm_prompt_info) $(bureau_git_prompt)'
+RPROMPT='$(bureau_git_prompt)'
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd bureau_precmd
