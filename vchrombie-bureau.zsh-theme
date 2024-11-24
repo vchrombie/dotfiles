@@ -101,7 +101,7 @@ get_space () {
   echo $SPACES
 }
 
-_1LEFT="$_USERNAME $_PATH"
+_1LEFT="$_PATH"
 _1RIGHT="[%*] "
 
 bureau_precmd () {
@@ -111,7 +111,7 @@ bureau_precmd () {
 }
 
 setopt prompt_subst
-PROMPT='>🔮$_LIBERTY '
+PROMPT='$_LIBERTY '
 RPROMPT='$(bureau_git_prompt)'
 
 autoload -U add-zsh-hook
