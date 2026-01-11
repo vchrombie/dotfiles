@@ -10,11 +10,12 @@ Read more about it here, https://www.thegeekyway.com/what-are-dotfiles/.
 ## How To Use
 
 Run this script on a fresh installation of the system.
+
 ```
 p0tt3r@wand ~
 >🔮$ sudo su
 
-p0tt3r@wand ~ 
+p0tt3r@wand ~
 >🔮$ sh -c "$(wget -O- https://raw.githubusercontent.com/vchrombie/dotfiles/master/install.sh)"
 ```
 

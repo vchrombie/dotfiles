@@ -18,7 +18,7 @@ echo "INSTALLING GIT" | pokemonsay
 apt install git-all
 
 git config --global user.name "Venu Vardhan Reddy Tekula"
-git config --global user.email "venuvardhanreddytekula8@gmail.com"
+git config --global user.email "venuvrtekula@gmail.com"
 
 echo "GIT IS CONFIGURED" | pokemonthink
 git --version
@@ -57,27 +57,11 @@ apt-get remove python3-pip; apt-get install python3-pip
 
 apt update
 
+# installing other applications
 echo "INSTALLING APPS" | pokemonsay
-# other required apps setup
-
-
-echo "TELEGRAM" | pokemonsay
-apt install telegram-desktop
-
-echo "SLACK" | pokemonsay
-snap install slack --classic
-
-echo "PYCHARM COMMUNITY" | pokemonsay
-snap install pycharm-community --classic
 
 echo "VSCODE" | pokemonsay
-snap install code --classic
-
-echo "SUBLIME TEXT" | pokemonsay
-apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
-curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
-apt install sublime-text
+snap install --classic code
 
 echo "FINAL CHECK FOR UPDATES AND MISSING PACKAGES"
 apt-get update && apt-get update --fix-missing
